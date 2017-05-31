@@ -69,6 +69,12 @@
 
 * [Небольшая статья на хабре](https://habrahabr.ru/post/102373/)
 
+## Полезные материалы
+
+* Пройдите `$ vimtutor`
+* [Vimium](https://vimium.github.io/)
+* [VIM awesome](http://vimawesome.com/)
+
 ## Возможные настройки для .vimrc
 
 ### Использовать 4 пробела вместо табов
