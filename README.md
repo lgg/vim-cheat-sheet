@@ -1,85 +1,85 @@
-# Шпаргалка по VIM
+# VIM cheat sheet
 
-## Выход, сохранение, редактирование
+* [Russian version](./README-ru.md)
 
-| Команда                      | Описание                           |
+## Exit, saving, edit
+
+| Command                      | Description                        |
 | ---------------------------- | ---------------------------------- |
-| :q                           | выход из файла                     |
-| :w                           | сохранить файл/записать содержимое |
-| :e                           | обновить содержимое файла          |
-| !                            | выполнить команду в любом случае   |
-| :wq                          | команды можно совмещать(в данном примере файл будет сохранен и закрыт) |
-| :x                           | аналог :wq                         |
-| ZZ                           | аналог :wq                         |
-| :q!                          | команды можно совмещать(выйти в любом случае, например, после сделанных изменений, без их сохранения) |
+| :q                           | exit from file                     |
+| :w                           | save file/write file content       |
+| :e                           | reload file content                |
+| !                            | run command anyway (force run)     |
+| :wq                          | you can combine commands (in this example, the file will be saved and closed) |
+| :x                           | same as `:wq`                      |
+| ZZ                           | same as `:wq`                      |
+| :q!                          | you can combine commands (force quit anyway, for example, after the changes made, without saving them) |
 
-## Общее использование
+## Common usage
 
-| Команда                      | Описание                          |
+| Command                      | Description                                                    |
+| ---------------------------- | -------------------------------------------------------------- |
+| i                            | insert / enter mode                                            |
+| a                            | insert / enter mode                                            |
+| ESC (Ctrl+[)                 | usual mode                                                     |
+| hjkl                         | moving cursor in different directions                          |
+| o                            | add a line after the current                                   |
+| Shift+o                      | add a line before the current                                  |
+| u                            | undo the last command                                          |
+| Ctrl+r                       | undo the undo the last command(redo) / repeat the last command |
+| gg                           | move cursor to the top of the file                             |
+| Shift+g                      | move cursor to the end of the file                             |
+| Shift+a                      | move cursor to the end of the line and go into edit mode       |
+| Shift+v                      | switch to visual mode                                          |
+| dd                           | delete current (selected) line/lines (cut)                     |
+| yy                           | copy current (selected) line/lines                             |
+| p                            | paste from clipboard (internal vim clipboard)                  |
+| /                            | start typing search phrase                                     |
+| n                            | next search result                                             |
+| Shift+n                      | previous search result                                         |
+| ^                            | move cursor to beginning of line                               |
+| $                            | move cursor to end of line                                     |
+| Ctrl+b                       | move one screen back                                           |
+| Ctrl+f                       | move one screen forward                                        |
+| mа                           | create new bookmark with name 'a'                              |
+| 'a                           | move to bookmark 'a'                                           |
+
+## Windows
+
+| Command                      | Description                       |
 | ---------------------------- | --------------------------------- |
-| i                            | режим вставки/ввода               |
-| a                            | режим вставки/ввода               |
-| ESC (Ctrl+[)                 | обычный режим                     |
-| hjkl                         | перемещение в разные стороны      |
-| o                            | добавить строку сразу за текущей  |
-| Shift+o                      | добавить строку перед текущей     |
-| u                            | отмена последней команды          |
-| Ctrl+r                       | отмена отмены последней команды(redo)/повтор последней команды   |
-| gg                           | перейти в начало документа        |
-| Shift+g                      | перейти в конец документа         |
-| Shift+a                      | перейти в конец строки и перейти в режим редактирования |
-| Shift+v                      | перейти в визуальный режим        |
-| dd                           | удалить текущую строку (вырезать) |
-| yy                           | копировать строку                 |
-| p                            | вставить из буфера обмена         |
-| /                            | начать вводить поисковую фразу    |
-| n                            | следующий результат поиска        |
-| Shift+n                      | предыдущий результат поиска       |
-| ^                            | переход в начало строки           |
-| $                            | переход в конец строки            |
-| Ctrl+b                       | перемещение на один экран назад   |
-| Ctrl+f                       | перемещение на один экран вперед  |
-| mа                           | создания закладки с именем 'a'    |
-| 'a                           | переход к созданной закладке 'a'  |
+| ctrl+w s                     | split window horizontally         |
+| ctrl+w v                     | split window vertically           |
+| ctrl+w <клавиша перемещения> | move to window                    |
+| ctrl+w K                     | move current window to top        |
+| ctrl+w _                     | maximize size of current window   |
+| ctrl+w =                     | align all windows                 |
 
-## Окна, вкладки и т.д.
+## Tabs
 
-| Команда                      | Описание                          |
+| Command                      | Description                       |
 | ---------------------------- | --------------------------------- |
-| ctrl+w s                     | горизонтальное разделение окна    |
-| ctrl+w v                     | вертикальное разделение окна      |
-| ctrl+w <клавиша перемещения> | перемещение к окну                |
-| ctrl+w K                     | текущее окно сделать верхним      |
-| ctrl+w _                     | текущее окно сделать макс размер  |
-| ctrl+w =                     | выровнять все окна                |
+| :tabnew [filename]	       | open new tab                      |
+| :tabf pat*ern	               | open new tab by pattern           |
+| :tabs	                       | list opened tabs                  |
+| gt или :tabn	               | next tab                          |
+| g Shift+t или :tabp          | previous tab                      |
+| :tabfirst или :tabfir        | first tab                         |
+| :tablast                     | last tab                          |
+| :tabm n                      | move tab to n (from 0)            |
+| :tabdo command               | apply command to all tabs         |
 
-## Работа со вкладками
+## Useful links
 
-| Команда                      | Описание                          |
-| ---------------------------- | --------------------------------- |
-| :tabnew [filename]	       | открыть новую вкладку             |
-| :tabf pat*ern	               | открыть вкладку по шаблону        |
-| :tabs	                       | список открытых вкладок           |
-| gt или :tabn	               | следующая вкладка                 |
-| g Shift+t или :tabp          | предыдущая вкладка                |
-| :tabfirst или :tabfir        | первая вкладка                    |
-| :tablast                     | последняя вкладка                 |
-| :tabm n                      | переместить вкладку в n (от 0)    |
-| :tabdo command               | выполнить над всеми вкладками     |
-
-* [Небольшая статья на хабре](https://habrahabr.ru/post/102373/)
-
-## Полезные материалы
-
-* Пройдите `$ vimtutor`
+* To learn vim you can use built-in tutorial: `vimtutor`
 * [Vimium](https://vimium.github.io/)
 * [VIM awesome](http://vimawesome.com/)
 
-## Возможные настройки для .vimrc
+## Config for .vimrc
 
-### Использовать 4 пробела вместо табов
+### Use 4 spaces instead of tab
 
-Добавьте в файл `~/.vimrc`:
+Add to file `~/.vimrc`:
 ```
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -88,27 +88,27 @@ set shiftwidth=4
 set expandtab
 ```
 
-### Использовать стрелки для перемещения
+### Use arrows to move through document
 
-Добавьте в файл `~/.vimrc`:
+Add to file `~/.vimrc`:
 ```
 :set nocompatible
 ```
 
-*Сразу предупреждаю, что использовать стрелки для навигации в VIM - плохая манера, ибо
-десятипальцевая печать(вам приходится убирать правую руку с привычного положения),
-замедляется скорость и т.д. (загуглите сами)*
+*I warn you that using arrows to navigate in VIM is a bad manner, because
+ten-finger print (you have to remove your right hand from its usual position),
+speed slows down etc. (google it yourself)*
 
-### Прочее
+### Other
 
-* Показать номера строк: `set number` 
-* Выделять поиск: `set hlsearch`
-* Игнорировать регистр при поиске: `set ignorecase`
-* Выделять поиск динамически при вводе: `set incsearch`
-* Всегда показывать строку статуса: `set laststatus=2`
-* Всегда показывать название файла: `set title`
+* Show line numbers: `set number` 
+* Highlight search: `set hlsearch`
+* Ignore case match in search: `set ignorecase`
+* Dynamically highlight search on typing: `set incsearch`
+* Always show status row: `set laststatus=2`
+* Always show file title: `set title`
 
 ## License
 
-* MIT 2016
+* MIT 2020
 * based on [zualex repo](https://github.com/zualex/vim-cheat-sheet)
