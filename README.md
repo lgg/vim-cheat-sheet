@@ -95,7 +95,7 @@ Add to file `~/.vimrc`:
 :set nocompatible
 ```
 
-*I warn you that using arrows to navigate in VIM is a bad manner, because
+*I warn you that using arrows to navigate in VIM is a bad manner, because of 
 ten-finger print (you have to remove your right hand from its usual position),
 speed slows down etc. (google it yourself)*
 
@@ -107,6 +107,32 @@ speed slows down etc. (google it yourself)*
 * Dynamically highlight search on typing: `set incsearch`
 * Always show status row: `set laststatus=2`
 * Always show file title: `set title`
+
+### Indent settings
+
+It could be a little bit annoying while editing some files (e.g. yaml) [vim will autoindent your file](https://stackoverflow.com/questions/51059357/vim-wrong-indent-when-comment-lines-of-yaml-file).
+
+Add this to your .vimrc file to disable auto-indent when typing # (hash) in Yaml files and set Tab and auto-indent to 2 spaces for yaml files
+```
+autocmd Filetype yaml setlocal indentkeys-=0# tabstop=2 shiftwidth=2
+```
+
+To debug your current indent settings use this command:
+```
+:verbose set autoindent? smartindent? cindent? cinkeys? indentexpr?
+```
+
+read more about this [here](http://vimdoc.sourceforge.net/htmldoc/options.html#:set-verbose) and [here](https://unix.stackexchange.com/questions/106526/stop-vim-from-messing-up-my-indentation-on-comments)
+
+### Enable .vimrc for sudo
+
+Best practice is to use `sudoedit` instead of `sudo vim`. You should be doing that anyway. Make sure your `EDITOR` environment variable is set to `vim` (probably already is, or vim is the default; you can set it in your .profile analog if need be).
+* You can check current `EDITOR` value by this command: `echo $EDITOR`
+* To set `EDITOR` value: `export EDITOR='vim'`
+
+### Set Vim as default editor
+
+To set vim as editor by default - add the following line to the `~/.bashrc` file: `export EDITOR='vim'`
 
 ## License
 
